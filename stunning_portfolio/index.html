@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Syne Mono', sans-serif;
+            background-color: #1a1a1a;
+            color: #E0E0E0;
+        }
+        .hero-title {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+        .slides {
+            display: none;
+        }
+        .fade {
+            animation: fadeEffect 2s;
+        }
+        @keyframes fadeEffect {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-gray-900 w-full min-h-screen">
+    <div class="w-full">
+        <header class="flex justify-between items-center py-3 px-6 bg-off-white text-gray-900 shadow-md w-full fixed top-0 left-0 z-50">
+            <img src="./images/logo/logo.png" alt="Logo" class="w-20 h-20 object-contain">
+            <nav>
+                <ul class="flex space-x-6 text-lg">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section id="hero" class="relative h-[85vh] flex items-center justify-start text-white bg-cover bg-right p-12" style="background-image: url('./images/hero.jpg');">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 max-w-lg">
+                <h2 class="text-4xl font-abold mb-4 hero-title">Vincent Amaca</h2>
+                <p class="text-lg mb-6">I craft visuals inspired by 90s Japanese drift culture—blending retro aesthetics with modern digital artistry. From neon-lit streets to nostalgic VHS edits, I bring the underground scene to life through my work.</p>
+                <a href="#projects" class="px-6 py-3 bg-black text-white text-lg font-bold shadow-lg hover:bg-teal-800 transition">EXPLORE MY WORK!</a>
+            </div>
+        </section>
+        
+        <section id="about" class="my-12 w-full px-6 flex flex-col md:flex-row items-center md:items-start text-center md:text-left">
+            <img src="./images/1.jpg" alt="Vincent Amaca" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mb-4 md:mb-0 md:mr-8">
+            <div>
+                <h2 class="text-4xl font-bold">About Me</h2>
+                <p class="mt-4 text-gray-400 text-lg">I’m Vincent, a passionate image editor and coder with a deep appreciation for 90s Japanese drift culture. I specialize in aesthetic edits that bring the golden era of street racing to life, using digital tools to enhance the raw beauty of retro photography.</p>
+                <p class="mt-2 text-gray-400 text-lg">My work is inspired by VHS grain, neon streetlights, and the underground drift scene, blending modern digital techniques with a nostalgic touch.</p>
+            </div>
+        </section>
+        
+        <section id="projects" class="my-12 w-full px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-6">My Image Edits</h2>
+            <div class="slideshow-container">
+                <div class="slides fade">
+                    <img src="./images/1.jpg" class="w-full h-auto mx-auto" alt="Edit 1">
+                </div>
+                <div class="slides fade">
+                    <img src="./images/2.jpg" class="w-full h-auto mx-auto" alt="Edit 2">
+                </div>
+                <div class="slides fade">
+                    <img src="./images/3.jpg" class="w-full h-auto mx-auto" alt="Edit 3">
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="my-12 text-center w-full px-6">
+            <h2 class="text-3xl font-semibold">Get in Touch</h2>
+            <p class="text-gray-400 mt-4 text-lg">Email me at <a href="mailto:vvamaca.student@asiancollege.edu.ph" class="text-blue-500 font-bold">vvamaca.student@asiancollege.edu.ph</a></p>
+        </section>
+        
+        <footer class="text-center py-6 text-gray-500 text-sm w-full">
+            &copy; 2025 My Portfolio. All Rights Reserved.
+        </footer>
+    </div>
+    <script>
+        let slideIndex = 0;
+        function showSlides() {
+            let slides = document.getElementsByClassName("slides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000);
+        }
+        showSlides();
+    </script>
+</body>
+</html>
